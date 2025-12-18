@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tausug Tribe: People of the Current</title>
+    <style>
+       
+        :root {
+            --primary-color: #795548; 
+            --secondary-color: #FFC107; 
+            --text-dark: #212121;
+            --text-light: #f5f5f5;
+            --background-light: #fff;
+            --background-dark: #3a3a3a;
+            --font-family: 'Georgia', serif;
+            --sans-font: 'Arial', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+        }
+
+        /* Header and Navigation */
+        header {
+            background: var(--background-dark);
+            color: var(--text-light);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            font-size: 2.2em;
+            margin: 0;
+            color: var(--secondary-color);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            transition: color 0.3s, border-bottom 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://static.wixstatic.com/media/af732f_3a28c01e05344fc792cdfa5e3e2404a5~mv2.jpg/v1/fill/w_900,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/af732f_3a28c01e05344fc792cdfa5e3e2404a5~mv2.jpg') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 20px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #hero h2 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid var(--secondary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        #hero p {
+            font-size: 1.4em;
+            max-width: 800px;
+            margin: 20px auto 0;
+            font-style: italic;
+        }
+
+        /* Main Content Section */
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        section h3 {
+            text-align: center;
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        section h3::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .feature-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            padding: 25px;
+            width: calc(33% - 20px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h4 {
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+
+        .icon {
+            font-size: 3em;
+            color: var(--secondary-color);
+        }
+
+        /* Detailed Content Sections (Simulated Pages) */
+        .content-block {
+            padding: 20px;
+            background: #f9f9f9;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .content-block h4 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        .content-block ul {
+            list-style: disc inside;
+        }
+
+        /* Culture Section Special Styling */
+        #culture .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .culture-item {
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .culture-item img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.5s;
+        }
+
+        .culture-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .culture-item p {
+            font-style: italic;
+            margin-top: 10px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        
+        .section-figure {
+            margin: 18px auto 22px;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .section-figure img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .section-figure figcaption {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        .culture-item figcaption {
+            font-size: 0.95rem;
+            color: #444;
+            padding: 10px 8px;
+        }
+
+ 
+        footer {
+            background: var(--background-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+        }
+
+       
+        @media (max-width: 900px) {
+            .feature-card {
+                width: calc(48% - 20px);
+            }
+            #culture .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .culture-item img {
+                height: 260px;
+            }
+            #hero h2 {
+                font-size: 2.5em;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav ul li {
+                display: block;
+                margin: 5px 0;
+            }
+            .feature-card {
+                width: 100%;
+            }
+            #culture .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .culture-item img {
+                height: 180px;
+            }
+            section h3 {
+                font-size: 2em;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container logo">
+            <h1>Tausug: People of the Current</h1>
+        </div>
+        <nav>
+            <div class="container">
+                <ul>
+                    <li><a href="#history">History</a></li>
+                    <li><a href="#social">Social</a></li>
+                    <li><a href="#political">Political</a></li>
+                    <li><a href="#economic">Economic</a></li>
+                    <li><a href="#culture">Culture</a></li>
+                    <li><a href="#religion">Religion (Spirituality)</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- <div class="container author" style="padding: 10px 0; background: #f3f3f3;">
+        <p style="margin:0; text-align:center; font-family:var(--sans-font); color:var(--primary-color);">
+            <strong>ERIKA MAE C. TINIO</strong> &nbsp;&middot;&nbsp; BSES-4A<br>
+            <strong>PROF. ROLITO BACALSO</strong> &nbsp;&middot;&nbsp; GEE-12B &nbsp;&middot;&nbsp; Philippine Indigenous Community
+        </p>
+    </div> -->
+
+    <section id="hero">
+        <div class="container">
+            <h2>The Tausug Tribe</h2>
+            <p>Descendants of the mighty Sultanate of Sulu, the "people of the current" are known for their rich history, fierce independence, and vibrant culture on the islands of Sulu and Mindanao.</p>
+        </div>
+    </section>
+
+    <section id="history">
+        <div class="container">
+            <h3>📜 History: Sultans and Sovereignty</h3>
+            <figure class="section-figure">
+                <img src="https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_700/MTc2MjkzMDA4NDMyNDQwNDkz/the-karakoa-the-traditional-pre-colonial-warship-of-the-philippines.jpg" alt="Traditional vinta boat on the Sulu Sea" loading="lazy">
+                <figcaption>Vinta boat near Sulu — Photo: <a href="https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_700/MTc2MjkzMDA4NDMyNDQwNDkz/the-karakoa-the-traditional-pre-colonial-warship-of-the-philippines.jpg" target="_blank" rel="noopener">Photo source</a></figcaption>
+            </figure>
+            <div class="content-block">
+                <p>The name “Tausug” — from <em>tau</em> (people) and <em>sug</em> (current) — captures a way of life shaped by the sea. For centuries the Tausug navigated the Sulu Archipelago, mastering boat-building, navigation, and trade; their ports traded pearls, sea produce, and crafts with merchants from China, Borneo, and the Malay world. As the 15th-century Sultanate of Sulu emerged, it unified islands under a shared political and religious framework that strengthened maritime networks and cultural exchange across the region.</p>
+                <p>Stone walls, royal titles, and oral epics still speak of a people who defended their autonomy: Tausug history records persistent resistance to foreign encroachment, from the Spanish era through American occupation. This resilience—expressed through seafaring skill, strategic alliances, and a strong sense of identity—helped preserve language, customs, and leadership traditions that survive today in both rural and diasporic communities.</p>
+                <p>Learning about Tausug history is to see how environment and diplomacy shaped a thriving trading polity and a maritime culture that adapted yet remained deeply rooted in local practice and belief.</p>
+                <p><strong>Reflection:</strong> Learning about the history of the Tausug people allows students to gain a deeper appreciation and understanding of their history and identity. The word “Tausug,” meaning “people of the current,” highlights how closely their life and culture are connected to the sea, especially through trading and seafaring. Studying the origins and the Sultanate of Sulu shows the depth of leadership, religion, and external connections that shaped their society long before colonization. What stands out is their persistent resistance to external control and their ability to preserve cultural continuity despite many challenges.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="social">
+        <div class="container">
+            <h3>👨‍👩‍👧‍👦 Social: Kinship and Hierarchy</h3>
+            <figure class="section-figure">
+                <img src="https://www.peopleinneed.net/image-cache/www/media/generated-page-translations/11864/image/dsc06812.jpg_1200x675-cover.webp?ts=1765271879" alt="A coastal Tausug community engaged in market activity" loading="lazy">
+                <figcaption>Community market in a coastal village — Photo: <a href="https://www.peopleinneed.net/image-cache/www/media/generated-page-translations/11864/image/dsc06812.jpg_1200x675-cover.webp?ts=1765271879" target="_blank" rel="noopener">Photo source</a></figcaption>
+            </figure>
+            <div class="content-block">
+                <p>Tausug social life revolves around close kin networks, shared work, and communal rituals. Villages and kampongs are organized around extended families where elders and religious leaders provide guidance; ceremonies such as weddings and harvest festivities are collective affairs that reinforce bonds and transmit customs. The use of language, ceremonial dress, and customary titles creates a vivid sense of belonging that spans generations and islands.</p>
+                <p>Environmental stewardship and traditional knowledge—such as seasonal fishing practices and informal marine tenure—help sustain coastal resources, yet modern pressures have introduced new vulnerabilities. Poverty, limited schooling in remote areas, and displacement from conflict have prompted many Tausug to migrate to urban centers in search of work and education. Communities respond through mutual aid, church-and-mosque-led social programs, and efforts to preserve language and cultural practice in schools and cultural centers.</p>
+                <p>Everyday social routines—market gossip, shared meals, and kin-based labor—reveal how identity is lived, adapted, and passed on in resilient, creative ways.</p>
+                <p><strong>Reflection:</strong> The social life of the Tausug emphasizes the importance of family, community, and the natural environment in shaping daily life and identity. Their strong kinship networks, respect for elders and religious leaders, and customary practices sustain social cohesion and provide support in times of hardship. Learning about their social organization and the challenges they face—such as limited access to education and displacement—helps us appreciate their resilience and the ongoing efforts to preserve culture while seeking new opportunities.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="political">
+        <div class="container">
+            <h3>🏛️ Political: Traditional Governance</h3>
+            <figure class="section-figure">
+                <img src="https://www.tandfonline.com/cms/asset/c4aad51a-f916-4b6f-a898-436605270200/cimw_a_2325226_f0004_ob.jpg" alt="Ceremonial regalia representing the Sultanate traditions" loading="lazy">
+                <figcaption>Sultanate regalia and ceremonial items — Photo: <a href="https://www.tandfonline.com/cms/asset/c4aad51a-f916-4b6f-a898-436605270200/cimw_a_2325226_f0004_ob.jpg" target="_blank" rel="noopener">Photo source</a></figcaption>
+            </figure>
+            <div class="content-block">
+                <p>Historically the Sultanate of Sulu provided centralized leadership, diplomatic ties, and a framework for trade and conflict resolution across the archipelago. Power flowed through royal households and datus—local leaders whose authority rested on lineage, patronage, and the ability to command respect in both peacetime and war. Islamic principles and adat (customary law) shaped legal norms and social obligations, producing a governance system that blended religion, tradition, and pragmatic rule.</p>
+                <p>In the modern era, formal political power lies with national and local governments, yet the cultural authority of traditional leaders persists, especially in ceremonial roles and community mediation. Where formal institutions fall short, adat and religious councils often serve as practical mechanisms for resolving local disputes, protecting land rights, and coordinating communal resources. Understanding Tausug politics means seeing how layered systems—historical, customary, and modern—interact in daily life and governance.</p>
+                <p><strong>Reflection:</strong> Learning about the Tausug political system shows how leadership, custom, and law shape community life. Even as modern governance becomes more prominent, customary authority and Islamic principles remain central to conflict resolution, land matters, and social order. Recognizing these overlapping systems helps us appreciate how communities adapt traditions to contemporary challenges while preserving social cohesion.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="economic">
+        <div class="container">
+            <h3>💰 Economic: Trade and Livelihood</h3>
+            <figure class="section-figure">
+                <img src="https://blogs.edf.org/edfish/wp-content/blogs.dir/18/files//EDFish-HeaderPhilipines.png" alt="Seaweed farms and local markets supporting coastal livelihoods" loading="lazy">
+                <figcaption>Seaweed farm near coastal communities — Photo: <a href="https://blogs.edf.org/edfish/wp-content/blogs.dir/18/files//EDFish-HeaderPhilipines.png" target="_blank" rel="noopener">Photo source</a></figcaption>
+            </figure>
+            <div class="content-block">
+                <p>The Tausug economy thrives where sea and soil meet: fishing, seaweed farming, and smallholder agriculture sustain many households, while craft production and inter-island trade provide additional income. Fishers use longlines, nets, and traditional traps; seaweed farms—particularly in Tawi-Tawi and nearby islands—are important cash industries that connect local producers to regional markets. On land, families cultivate rice, root crops, coconuts, and abaca, often combining subsistence work with market-oriented cash crops.</p>
+                <p>Handicrafts—Pis Syabit weaving, mat-making, and boat-building—carry both cultural value and economic opportunity. Traders still move goods across the Sulu Sea, and remittances from Tausug who have moved to urban centers or abroad are increasingly vital to household economies. Challenges include market access, irregular weather, and resource pressure, but many communities are experimenting with cooperatives, sustainable fishing practices, and value-added crafts to strengthen livelihoods.</p>
+                <p><strong>Reflection:</strong> Learning about the Tausug economy shows how livelihoods are intricately tied to environment, skill, and trade networks. Fishing, farming, and artisanal crafts not only sustain families but also transmit cultural knowledge and identity. Supporting local markets, improving infrastructure, and encouraging sustainable practices can help preserve these economic systems while offering pathways for improved well-being.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="culture">
+        <div class="container">
+            <h3>🎨 Culture: Artistry and Heritage</h3>
+            <div class="feature-grid">
+                <figure class="culture-item">
+                    <img src="https://static.wixstatic.com/media/af732f_414a5d41b37d4db59d08d592b7be3701~mv2.jpg/v1/fill/w_599,h_400,al_c,lg_1,q_80,enc_avif,quality_auto/af732f_414a5d41b37d4db59d08d592b7be3701~mv2.jpg" alt="Tausug Traditional Dance" loading="lazy">
+                    <figcaption>Pangalay Dance: Graceful, intricate finger movements and 'janggay' (metal fingernails). — Photo: <a href="REPLACE_SOURCE_URL" target="_blank" rel="noopener">Photo source</a></figcaption>
+                </figure>
+                <figure class="culture-item">
+                    <img src="https://sinaunangpanahon.com/wp-content/uploads/2023/09/Tausug-Language-Preservation-Image.jpg" alt="Tausug Textile" loading="lazy">
+                    <figcaption>Pis Syabit: A traditional headcloth known for its complex geometric patterns and bold colors. — Photo: <a href="REPLACE_SOURCE_URL" target="_blank" rel="noopener">Photo source</a></figcaption>
+                </figure>
+                <figure class="culture-item">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5tscrbl22PKur7LK7PRe7pJkz0sK7YSarCJHJhJt3BAKBSQDuY1dtaA6RtZP34_nJ8WoKAm_2T4Y55OZjwvEbKVEiXy3aa_Qf8epeZKuocqkHmdienezlnJIDP_5t7WW92lHod0fNWUmk-J536WCmBgnsq1Q5KMB95LyMjsfZ5a-TfdLnoQ/s450/2375_PoliticalSystem_1.width-3000.jpg" alt="Kris Sword" loading="lazy">
+                    <figcaption>Kris and Barong: Traditional weaponry, symbolizing prestige, honor, and martial skill. — Photo: <a href="REPLACE_SOURCE_URL" target="_blank" rel="noopener">Photo source</a></figcaption>
+                </figure>
+            </div>
+            <div class="content-block" style="margin-top: 30px;">
+                <p>Tausug cultural expression is rich, tactile, and performed: from the delicate arm and handwork of Pangalay dancers to the bold geometric weaves of Pis Syabit cloths. Boat-building and carved okkir motifs turn everyday objects into canvases of identity, while kulintangan ensembles and agung drums mark ceremonies with resonant, communal music. Storytelling—epic verse, folktales, and proverbs—transmits history and moral lessons across generations in a living oral tradition.</p>
+                <p>Rituals and festivals bring communities together—weddings, harvests, and religious holidays combine song, dance, food, and gift-giving, reinforcing social bonds and passing skills to younger people. Traditional dress and handicrafts also play modern roles: they are worn with pride at cultural events and sold as artisan goods that sustain livelihoods and promote Tausug heritage to visitors and collectors.</p>
+                <p><strong>Reflection:</strong> Reading about the Tausug culture made one realize how important it is to keep traditions alive and respect the values passed down through generations. Their daily life, celebrations, and arts all show a deep connection to the sea and their community. The way they honor elders, celebrate Islamic holidays, and share stories through music, dance, and oral literature feels very meaningful. It is inspiring to see how their culture stays alive in everyday life and special occasions, showing a strong sense of identity and unity that everyone can appreciate.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="religion">
+        <div class="container">
+            <h3>🕌 Religion (Spirituality): Faith and Beliefs</h3>
+            <figure class="section-figure">
+                <img src="https://www.independent.com/wp-content/uploads/2019/07/20190531-Goleta-Mosque-017-copy.jpg?w=1536" alt="A mosque serving as a community center for worship and learning" loading="lazy">
+                <figcaption>Community mosque — Photo: <a href="https://www.independent.com/wp-content/uploads/2019/07/20190531-Goleta-Mosque-017-copy.jpg?w=1536" target="_blank" rel="noopener">Photo source</a></figcaption>
+            </figure>
+            <div class="content-block">
+                <p>Islam is central to Tausug life, shaping ethics, daily routine, and public ceremonies. Most Tausug follow Sunni practices—daily prayers, Ramadan fasting, and communal support through zakat—and mosques serve as centers of worship, education, and community deliberation. Religious scholars and elders play important roles in interpreting law and guiding social conduct, and life-cycle rituals—birth naming, marriage rites, funerals—are observed with a blend of Islamic formality and local custom.</p>
+                <p>At the same time, Tausug religious life shows local variation: pre-Islamic customs, ancestor respect, and regional practices are woven into celebrations and seasonal observances. Festivals like Eid are heightened moments of reunification—fogeys and families return, feasts are shared, and music and dance enliven social ties—reminding communities that faith, culture, and everyday life are closely interlinked.</p>
+                <p><strong>Reflection:</strong> Learning about the Tausug people’s lifestyle helped me understand how much religion influences everyday habits and beliefs. Seeing how they practice prayers, fasting, and charity showed how their faith guides both personal choices and community life. It was also interesting to learn how they celebrate important events with music, dance, and gatherings, making their culture lively and connected. Their strong focus on family, community, and moral responsibility gave them a new appreciation for how beliefs can unite people and give meaning to life.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Tausug Heritage Project. All rights reserved.</p>
+            <p>***Disclaimer: This is a static HTML/CSS template based on general information.***</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
